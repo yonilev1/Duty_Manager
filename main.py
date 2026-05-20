@@ -52,8 +52,6 @@ def handle_view_soldier_duties():
 
 
 def main():
-    soldier_list = []
-    duties_list = []
     show_menu()
     choice = get_user_choice()
     while True:
