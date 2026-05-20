@@ -1,16 +1,19 @@
-import data
+MAX_ID = 1000000000
+MIN_ID = 1
+MAX_LEN_NAME = 20
+MIN_LEN_NAME = 1
 
 def is_valid_name(name: str) -> bool:
-    return 0 < len(name) <= 20 
+    return MIN_LEN_NAME <= len(name) <= MAX_LEN_NAME 
     
 
-def is_valid_ma(ma:int):
-    return ma < 1000000000
+def is_valid_soldier_id(soldier_id:int):
+    return MIN_ID <= soldier_id < MAX_ID
 
 
-def find_soldier_by_id(ma):
-    for index, soldier in enumerate(data.soldier_list):
-        if soldier["ma"] == ma:
+def find_soldier_by_id(all_soldiers:list, soldier_id):
+    for index, soldier in enumerate(all_soldiers):
+        if soldier["soldier_id"] == soldier_id:
             return soldier, index
     return None, None
 
@@ -35,4 +38,5 @@ def find_duty_by_name(duties: list, duty_name: str) -> dict | None:
         if duty["name"] == duty_name:
             return duty
     return None
+
           
