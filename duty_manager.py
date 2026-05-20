@@ -38,7 +38,8 @@ def update_duty_status(ma: int, duty_name: str, new_status: str) -> None:
     if not utils.soldier_has_duty(soldier, duty_name):
         raise ValueError(f"soldier - {soldier["name"]} does not have duty: {duty_name}.")
     
-    soldier[3]["status"] = new_status
+    duty = utils.find_duty_by_name(soldier["duties"], duty_name)
+    duty["status"] = new_status
 
     
     

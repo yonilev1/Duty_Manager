@@ -20,7 +20,7 @@ def get_user_choice():
 
 
 def handle_add_soldier():
-    soldier_ma = int(input("Enter soldiers MA (7 digits): "))
+    soldier_ma = int(input("Enter soldiers MA (1-7 digits): "))
     soldier_name = input("Enter soldiers name (7-20 chars): ")
     soldier_manager.add_soldier(soldier_ma, soldier_name)
     
@@ -43,8 +43,9 @@ def handle_add_duty():
 
 def handle_update_duty_status():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
+    duty_name = input("Enter duties name: ")
     new_status = input("Enter tasks status: ")
-    duty_manager.update_duty_status(soldier_ma, new_status)
+    duty_manager.update_duty_status(soldier_ma, duty_name, new_status)
 
 
 def handle_view_soldier_duties():
@@ -66,7 +67,7 @@ def main():
                 case 3:
                     handle_add_duty()
                 case 4:
-                    handle_update_duty_status
+                    handle_update_duty_status()
                 case 5:
                     handle_view_soldiers()
                 case 6:
