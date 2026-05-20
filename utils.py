@@ -9,10 +9,10 @@ def is_valid_ma(ma:int):
 
 
 def find_soldier_by_id(ma):
-    for soldier in data.soldier_list:
+    for index, soldier in enumerate(data.soldier_list):
         if soldier["ma"] == ma:
-            return soldier
-    return None
+            return soldier, index
+    return None, None
 
 
 def is_valid_status(status: str) -> bool:
