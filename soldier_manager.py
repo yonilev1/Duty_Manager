@@ -18,18 +18,9 @@ def remove_soldier(ma: int) -> None:
     if not soldier:
         raise ValueError(f"ma {ma} was not found in the database")
     else:
-        data.soldier_list.remove(index)
+        del data.soldier_list[index]
 
 
 def get_all_soldiers() -> list:
     for soldier in data.soldier_list:
         print(f"=== ma: {soldier["ma"]}, name: {soldier["name"]} ===")
-
-       
-
-
-
-
-
-
-

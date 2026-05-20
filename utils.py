@@ -15,8 +15,12 @@ def find_soldier_by_id(ma):
     return None, None
 
 
-def is_valid_status(status: str) -> bool:
+def is_valid_day(status: str) -> bool:
     return status.lower() in ["sunday", "monday", "tuesday", "wednesday", "thursday"]
+
+
+def is_valid_status(status: str) -> bool:
+    return status.lower() in [ "pending", "completed", "missed"]
 
 
 def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
