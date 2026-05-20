@@ -21,7 +21,9 @@ def remove_soldier(ma: int) -> None:
         data.soldier_list.remove(index)
 
 
-
+def get_all_soldiers() -> list:
+    for soldier in data.soldier_list:
+        print(f"=== ma: {soldier["ma"]}, name: {soldier["name"]} ===")
 
        
 
