@@ -1,4 +1,4 @@
-import soldier_manager
+import soldier_manager, duty_manager
 
 def show_menu():
     print("""
@@ -22,55 +22,62 @@ def get_user_choice():
 def handle_add_soldier():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
     soldier_name = input("Enter soldiers name (7-20 chars): ")
-    #logic by soldier_manager
+    soldier_manager.add_soldier(soldier_ma, soldier_name)
     
 
 def handle_remove_soldier():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
-    #logic by soldier_manager
+    soldier_manager.remove_soldier(soldier_ma)
 
 
 def handle_view_soldiers():
-    #call view by soldier_manager
-    pass
+    soldier_manager.get_all_soldiers()
 
 
 def handle_add_duty():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
-    #call create tast
-    #call add duty to soldier in soldeir_manager
+    duty_name = input("Enter the duties name: ")
+    duty_day = input("Enter the duties due date: ")
+    duty_manager.add_duty_to_soldier(soldier_ma, duty_name, duty_day)
 
 
 def handle_update_duty_status():
-    status = input("Enter tasks status: ")
-    #call update duty
+    soldier_ma = int(input("Enter soldiers MA (7 digits): "))
+    new_status = input("Enter tasks status: ")
+    duty_manager.update_duty_status(soldier_ma, new_status)
 
 
 def handle_view_soldier_duties():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
-    #call soldier_manager
+    duty_manager.get_soldier_duties(soldier_ma)
 
 
 def main():
     show_menu()
-    choice = get_user_choice()
     while True:
-        match choice:
-            case 1:
-                handle_add_soldier()
-            case 2:
-                handle_remove_soldier()
-            case 3:
-                handle_add_duty()
-            case 4:
-                handle_update_duty_status
-            case 5:
-                handle_view_soldiers()
-            case 6:
-                handle_view_soldier_duties
-            case 0:
-                break
+        choice = get_user_choice()
+        try:
+            match choice:
+                case 1:
+                    handle_add_soldier()
+                case 2:
+                    handle_remove_soldier()
+                case 3:
+                    handle_add_duty()
+                case 4:
+                    handle_update_duty_status
+                case 5:
+                    handle_view_soldiers()
+                case 6:
+                    handle_view_soldier_duties
+                case 0:
+                    break
+        except Exception as e:
+            print(e)
         
+
+if __name__ =="__main__":
+    main()
 
 
     

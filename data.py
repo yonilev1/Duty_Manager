@@ -1,2 +1,2 @@
 soldier_list = []
-duties_list = []    
+#duties_list = []    
