@@ -24,7 +24,7 @@ def is_valid_status(status: str) -> bool:
 
 
 def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
-    for duty in soldier["doties"]:
+    for duty in soldier["duties"]:
         if duty["name"] == duty_name:
             return True
     return False

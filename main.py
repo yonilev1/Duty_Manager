@@ -49,13 +49,14 @@ def handle_update_duty_status():
 
 def handle_view_soldier_duties():
     soldier_ma = int(input("Enter soldiers MA (7 digits): "))
-    duty_manager.get_soldier_duties(soldier_ma)
+    print(duty_manager.get_soldier_duties(soldier_ma))
 
 
 def main():
-    show_menu()
     while True:
+        show_menu()
         choice = get_user_choice()
+
         try:
             match choice:
                 case 1:
@@ -69,7 +70,7 @@ def main():
                 case 5:
                     handle_view_soldiers()
                 case 6:
-                    handle_view_soldier_duties
+                    handle_view_soldier_duties()
                 case 0:
                     break
         except Exception as e:

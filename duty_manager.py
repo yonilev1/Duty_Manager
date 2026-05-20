@@ -3,7 +3,7 @@ import data, utils
 def get_soldier_duties(ma:int):
     for soldier in data.soldier_list:
         if soldier["ma"] == ma:
-            return soldier
+            return soldier["duties"]
     raise KeyError(f"No soldier found with ma: {ma}")
 
 
@@ -21,7 +21,7 @@ def add_duty_to_soldier(ma: int, duty_name: str, day: str) -> None:
     if utils.soldier_has_duty(soldier, duty_name):
         raise ValueError(f"soldier - {soldier["name"]} allready has duty: {duty_name}.")
     
-    soldier[3].append({"name":duty_name, "day":day, "status":"pending"})
+    soldier["duties"].append({"name":duty_name, "day":day, "status":"pending"})
 
 
 def update_duty_status(ma: int, duty_name: str, new_status: str) -> None:
