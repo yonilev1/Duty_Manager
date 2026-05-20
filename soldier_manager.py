@@ -6,7 +6,7 @@ def add_soldier(ma: int, name: str) -> None:
     elif not utils.is_valid_name(name):
         raise ValueError(f"name {name} is not valid, should be str 1 - 20 chars")
     elif utils.find_soldier_by_id(ma)[0]:
-        raise ValueError(f"ma {ma} is allready in use, ma should be unique")
+        raise ValueError(f"ma {ma} is already in use, ma should be unique")
     else:
         data.soldier_list.append({"ma":ma, "name":name, "duties":[]})
 

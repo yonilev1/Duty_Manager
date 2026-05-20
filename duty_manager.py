@@ -19,7 +19,7 @@ def add_duty_to_soldier(ma: int, duty_name: str, day: str) -> None:
     if not soldier:
         raise ValueError(f"ma {ma} was not found in the database")
     if utils.soldier_has_duty(soldier, duty_name):
-        raise ValueError(f"soldier - {soldier["name"]} allready has duty: {duty_name}.")
+        raise ValueError(f"soldier - {soldier["name"]} already has duty: {duty_name}.")
     
     soldier["duties"].append({"name":duty_name, "day":day, "status":"pending"})
 
