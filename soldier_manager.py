@@ -1,6 +1,11 @@
 import utils
 
 def add_soldier(all_soldiers:list, soldier_id: int, name: str) -> None:
+    """
+    add new soldier to list of soldiers
+    gets: list, int, str
+    returns: None
+    """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
     elif not utils.is_valid_name(name):
@@ -12,6 +17,11 @@ def add_soldier(all_soldiers:list, soldier_id: int, name: str) -> None:
 
 
 def remove_soldier(all_soldiers:list, soldier_id: int) -> None:
+    """
+    remove soldier from list of soldiers
+    gets: list, int
+    returns: None
+    """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
     soldier, index = utils.find_soldier_by_id(all_soldiers, soldier_id)
@@ -22,6 +32,11 @@ def remove_soldier(all_soldiers:list, soldier_id: int) -> None:
 
 
 def get_all_soldiers(all_soldiers:list) -> list:
+    """
+    get and print list of all soldiers
+    gets: list
+    returns: None
+    """
     for soldier in all_soldiers:
         print(f"=== soldier_id: {soldier["soldier_id"]}, name: {soldier["name"]} ===")
   

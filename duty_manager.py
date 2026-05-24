@@ -1,6 +1,11 @@
 import data, utils
 
 def get_soldier_duties(all_soldiers:list, soldier_id:int):
+    """
+    serach for soldier and return his duties
+    get: list, int
+    returns: dict
+    """
     for soldier in all_soldiers:
         if soldier["soldier_id"] == soldier_id:
             return soldier["duties"]
@@ -8,6 +13,11 @@ def get_soldier_duties(all_soldiers:list, soldier_id:int):
 
 
 def add_duty_to_soldier(all_soldiers:list, soldier_id: int, duty_name: str, day: str) -> None:
+    """
+    add duty to solders duties list
+    gets: list, int, str, str
+    returns: None
+    """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
     elif not utils.is_valid_name(duty_name):
@@ -25,6 +35,11 @@ def add_duty_to_soldier(all_soldiers:list, soldier_id: int, duty_name: str, day:
 
 
 def update_duty_status(all_soldiers:list, soldier_id: int, duty_name: str, new_status: str) -> None:
+    """
+    updates duty status in soldiers list
+    gets: list, int, str, str
+    returns: None
+    """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
     elif not utils.is_valid_name(duty_name):
