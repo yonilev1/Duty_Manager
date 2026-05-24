@@ -20,7 +20,9 @@ Welcome to the duty Maneger App:
 def get_user_choice()->int:
     """
     get users choice, prints the choice to terminal user
-    RETURNS: int
+
+    Returns: 
+        option that was chosen(int)
     """
     choice = int(input("Please enter your choice: "))
     print(f"You chose option: {choice} ->")
@@ -30,6 +32,11 @@ def get_user_choice()->int:
 def handle_add_soldier(all_soldiers:list):
     """
     get's soldiers id and name form user, and sends it to the logic level to add to list
+
+    Args:
+        all_soldiers(list): list of all soldiers
+    Returns:
+        None
     """
     soldier_id = int(input("Enter soldiers id (1-7 digits): "))
     soldier_name = input("Enter soldiers name (7-20 chars): ")
@@ -39,19 +46,35 @@ def handle_add_soldier(all_soldiers:list):
 def handle_remove_soldier(all_soldiers:list):
     """
     get's soldiers id and sends to ligic level to try to remove
+
+    Args:
+        all_soldiers(list): list of all soldiers
+
+    Returns: None
     """
     soldier_id = int(input("Enter soldiers id (7 digits): "))
     soldier_manager.remove_soldier(all_soldiers, soldier_id)
 
 
 def handle_view_soldiers(all_soldiers:list):
-    "sends to ligic level to print all soldiers"
+    """
+    sends to ligic level to print all soldiers
+
+    gets: list
+    returns: None
+    """
     soldier_manager.get_all_soldiers(all_soldiers)
 
 
 def handle_add_duty(all_soldiers:list):
     """
     get's soldier id, duty name and day from user and send to logic level to add
+
+    Args:
+        all_soldiers(list): list of all soldiers
+
+    Returns:
+        None
     """
     soldier_id = int(input("Enter soldiers id (7 digits): "))
     duty_name = input("Enter the duties name: ")
@@ -62,6 +85,12 @@ def handle_add_duty(all_soldiers:list):
 def handle_update_duty_status(all_soldiers:list):
     """
     get's soldier id, duty name and new status from user and send to logic level to update
+
+    Args:
+        all_soldiers(list): list of all soldiers
+
+    Returns:
+        None
     """
     soldier_id = int(input("Enter soldiers id (7 digits): "))
     duty_name = input("Enter duties name: ")
@@ -72,12 +101,21 @@ def handle_update_duty_status(all_soldiers:list):
 def handle_view_soldier_duties(all_soldiers:list):
     """
     get's soldier id and sends to logic level to get all his duties
+
+    Args:
+        all_soldiers(list): list of all soldiers
+
+    Returns:
+        None
     """
     soldier_id = int(input("Enter soldiers id (7 digits): "))
     print(duty_manager.get_soldier_duties(all_soldiers, soldier_id))
 
 
 def main():
+    """
+    oparate all function to use the system
+    """
     user_logged_in = True
     all_soldiers = data.soldier_list
     while user_logged_in:
