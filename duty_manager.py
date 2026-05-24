@@ -3,8 +3,16 @@ import data, utils
 def get_soldier_duties(all_soldiers:list, soldier_id:int):
     """
     serach for soldier and return his duties
-    get: list, int
-    returns: dict
+
+    Args:
+        all_soldiers(list): list of all soldiers
+        soldier_id(int): target soldiers id
+
+    Returns:
+        Dict: all soldiers duties if exist, else empty dict
+
+    Raises:
+        KeyError: if soldier not found with id
     """
     for soldier in all_soldiers:
         if soldier["soldier_id"] == soldier_id:
@@ -15,8 +23,18 @@ def get_soldier_duties(all_soldiers:list, soldier_id:int):
 def add_duty_to_soldier(all_soldiers:list, soldier_id: int, duty_name: str, day: str) -> None:
     """
     add duty to solders duties list
-    gets: list, int, str, str
-    returns: None
+    
+    Args:
+        all_soldiers(list): list of all soldiers
+        soldier_id(int): target soldiers id
+        duty_name(str): duty's name
+        day(str):assigned day
+
+    Returns:
+        None
+        
+    Raises: 
+        ValueError: if id or name or day not valid, or soldier not exists or soldier already has that duty (by name)
     """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
@@ -37,8 +55,18 @@ def add_duty_to_soldier(all_soldiers:list, soldier_id: int, duty_name: str, day:
 def update_duty_status(all_soldiers:list, soldier_id: int, duty_name: str, new_status: str) -> None:
     """
     updates duty status in soldiers list
-    gets: list, int, str, str
-    returns: None
+
+    Args:
+        all_soldiers(list): list of all soldiers
+        soldier_id(int): target soldiers id
+        duty_name(str): duty's name
+        new_status(str):assigned day
+
+    Returns:
+        None
+        
+    Raises: 
+        ValueError: if id or name or status not valid, or soldier not exists or soldier does not have that duty (by name)
     """
     if not utils.is_valid_soldier_id(soldier_id):
         raise ValueError(f"soldier_id {soldier_id} is not valid, should be number with 1 - 10 digits")
